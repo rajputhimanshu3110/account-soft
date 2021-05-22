@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <form method="POST" action="/payment/{{paydata.username}}">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{paydata.username}}" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" value="{{paydata.email}}" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="mno" class="form-label">Mob.no</label>
+          <input type="number" class="form-control" id="mno" name="mno" value="{{paydata.mno}}" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="ptype" class="form-label">Payment Type</label>
+          <select class="form-select form-select-sm" name="ptype">
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" required>
+        </div>
+        <div class="mb-3">
+          <label for="pmeth" class="form-label">Payment Method</label>
+          <select class="form-select form-select-sm" name="pmeth">
+            <option value="Cash" selected>Cash</option>
+            <option value="Google Pay">Google Pay</option>
+            <option value="Phone Pe">Phone Pe</option>
+            <option value="BHIM">BHIM</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-block btn-sm btn-outline-secondary rounded-0">Submit</button>
+      </form>
+</div>   
+{% endblock body %}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Account</title>
+    <style>
+      *{
+        font-family: 'Times New Roman', Times, serif;
+        margin:0%;
+      }
+      a{
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration: none;
+      }
+    </style>
+</head>
+<body style="background-color: #e6fff2;">
+  <div class="bg-warning">
+    <a href="/">
+      <h2 class="text-center py-2 text-light m-0" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Account</h2>
+    </a>
+</div>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Account</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>-->
+{% block body %}
+    
+{% endblock body %}
+<div class="bg-dark text-white fixed-bottom">
+  <p class="text-center py-3 m-0">Designed and Developed by <a href="https://github.com/viraj3110" class="text-white" target="_blank">Viraj Singh</a></p>
+</div>
+<!--Extra items-->
+<div class="modal fade" id="add_new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="mno" class="form-label">Mob.no</label>
+            <input type="number" class="form-control" id="mno" name="mno">
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" required>
+          </div>
+          <div class="mb-3">
+            <label for="ptype" class="form-label">Payment Type</label>
+            <select class="form-select form-select-sm" name="ptype">
+              <option value="Debit">Debit</option>
+              <option value="Credit">Credit</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="pmeth" class="form-label">Payment Method</label>
+            <select class="form-select form-select-sm" name="pmeth">
+              <option value="Cash" selected>Cash</option>
+              <option value="Google Pay">Google Pay</option>
+              <option value="Phone Pe">Phone Pe</option>
+              <option value="BHIM">BHIM</option>
+              <option value="Paytm">Paytm</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-block btn-sm btn-outline-secondary rounded-0">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Other JavaScript! -->
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

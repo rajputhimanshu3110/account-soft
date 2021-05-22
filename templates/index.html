@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="background-color: rgb(211, 255, 157); margin: 0;">
+        <div class="container-md py-3">
+            <a class="btn btn-sm btn-outline-secondary float-end rounded-0 mx-1">Log Out</a>
+            <button type="button" class="btn btn-sm btn-outline-info float-end rounded-0 mx-1" data-bs-toggle="modal" data-bs-target="#add_new">
+                Add New
+              </button>
+            <h5>Hello Mr. Viraj</h5>
+            <p class="m-0">Total Gives: 5000</p>
+            <p class="m-0">Total Takes: 3000</p>
+            <p class="m-0">You are in Gain Mr. Viraj</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+               {% for user in users %}
+               <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td><a href="/user/{{user.username}}">{{user.username}}</a></td>
+                <td>
+                    {% if user.total_amount<'0' %}
+                        <span class='text-danger'>{{user.total_amount}}</span>
+                    {% else %}
+                    <span class='text-success'>{{user.total_amount}}</span>
+                    {% endif %}
+                    </td>
+                <td>
+                    {% if user.total_amount<'0' %}
+                        Gived
+                    {% else %}
+                    {{user.status}}
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/refresh/{{user.username}}" class="btn btn-sm btn-outline-info rounded-0">Refresh</a>
+                </td>
+              </tr>  
+               {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock body %}

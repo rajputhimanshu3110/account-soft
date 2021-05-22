@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="background-color: rgb(211, 255, 157); margin: 0;">
+        <div class="container-md py-3">
+            <a href="" class="btn btn-sm btn-outline-success float-end rounded-0 mx-1">Full Paid</a>
+            <a href="/payment/{{user.username}}" class="btn btn-sm btn-outline-primary float-end rounded-0 mx-1">Payments</a>
+            <h5>{{user.username}}</h5>
+            <p class="m-0">Email: {{user.email}}</p>
+            <p class="m-0 float-end">Mobile.no: {{user.mno}}</p>
+            <p class="m-0">Total: {{debit-credit}}</p>
+            <p class="m-0">Credit: {{credit}}<br>Debit: {{debit}}</p>
+            <p class="m-0">
+                {% if credit>debit %}
+                    You are in Loan
+                {% else %}
+                    You are in Plus Point 
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Platform</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Debit</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for data in statement %}
+                <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{data.pmeth}}</td>                
+                {% if data.ptype == 'Credit' %}
+                   <td>{{data.amount}}</td> 
+                {% else %}
+                    <td></td>
+                {% endif %}
+                {% if data.ptype == 'Debit' %}
+                   <td>{{data.amount}}</td> 
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td>{{data.loan_date}}</td>
+                <td>
+                    <a class="btn btn-outline-primary rounded-0 btn-sm">Edit</a>
+                    <a href="/delete/{{data.id}}" class="btn btn-outline-danger rounded-0 btn-sm">Delete</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock body %}
