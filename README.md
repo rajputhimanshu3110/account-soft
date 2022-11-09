@@ -5,5 +5,4 @@
   1- User table
   2- statement table
   
-  
-  This project work in progress
+  Incomplete Project
